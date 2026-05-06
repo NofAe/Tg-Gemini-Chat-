@@ -292,8 +292,8 @@ def webhook():
                 if not prompt:
                     send_message(chat_id, "❌ **Usa:** `/imagen descripción de la imagen`")
                     return jsonify({'ok': True})
-                # Mostrar mensaje de "generando"
-                status_msg = send_message(chat_id, f"🎨 **Generando imagen...**\n\n_"Prompt: {prompt[:100]}_")
+                # ✅ Código corregido:
+                status_msg = send_message(chat_id, f"🎨 **Generando imagen...**\n\n_Prompt: {prompt[:100]}_")
                 # Lanzar hilo para no bloquear
                 threading.Thread(target=generate_and_send_image, args=(chat_id, prompt, status_msg)).start()
                 return jsonify({'ok': True})
